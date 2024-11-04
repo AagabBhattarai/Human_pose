@@ -1,0 +1,7 @@
+sequence_id,predicted_pose,given_pose,confidence
+1003,downward-dog,mountain,0.9715293645858765
+1090, Extended Triangle Pose,mountain,0.9999967813491821
+1474,mountain,standing-forward-bend,0.9700876474380493
+1501,mountain,standing-forward-bend,0.9281749129295349
+1788,standing-forward-bend,half-way-lift,0.9985582232475281
+1823,unknown,half-way-lift,0.999506950378418 #remove this unknown pose
