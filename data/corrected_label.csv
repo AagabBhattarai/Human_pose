@@ -4,4 +4,4 @@ sequence_id,predicted_pose,given_pose,confidence
 1474,mountain,standing-forward-bend,0.9700876474380493
 1501,mountain,standing-forward-bend,0.9281749129295349
 1788,standing-forward-bend,half-way-lift,0.9985582232475281
-1823,unknown,half-way-lift,0.999506950378418 #remove this unknown pose
+1823,cobra,half-way-lift,0.999506950378418 #remove this unknown pose
