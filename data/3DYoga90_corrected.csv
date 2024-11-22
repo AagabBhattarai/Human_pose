@@ -87,9 +87,9 @@ sequence_id,url_id,url,frame_start,frame_end,sequence_duration,source_id,source,
 1087,4382,https://www.youtube.com/watch?v=Rd2CZUUOPIs,90,95,5,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,11,standing-straight,101,mountain,3,train
 1088,5061,https://www.youtube.com/watch?v=w1kokoCVOB0,93,95,2,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,11,standing-straight,101,mountain,3,train
 1089,3924,https://www.youtube.com/watch?v=nVLeZrRCSHw,282,283,1,3332,ÏÜåÏùÄ Îã¥ÏùÄ ÏöîÍ∞Ä,1,standing,11,standing-straight,101,mountain,3,train
-1090,4123,https://www.youtube.com/watch?v=PCTkYA345ek,1537,1544,7,3333,Ïà® Ïâ¨Îäî Í≥†Îûò,1,standing,11,standing-straight,101,mountain,3,train
+1090,4123,https://www.youtube.com/watch?v=PCTkYA345ek,1537,1544,7,3333,Ïà® Ïâ¨Îäî Í≥†Îûò,1,standing,13,standing-side-bend,113,extended-triangle,3,train
 1091,1679,https://www.youtube.com/watch?v=7WK22ASTJwE,163,168,5,3337,"Ïä§ÏôÄÎùºÏöîÍ∞Ä, SWARA YOGA",1,standing,11,standing-straight,101,mountain,3,train
-1092,4999,https://www.youtube.com/watch?v=VoYmG2PVWCs,182,184,2,3338,Ïä§ÌÉÄÌï´ÏöîÍ∞Ä,1,standing,11,standing-straight,101,mountain,3,test
+1092,4999,https://www.youtube.com/watch?v=VoYmG2PVWCs,182,184,2,3338,Ïä§ÌÉÄÌï´ÏöîÍ∞Ä,1,standing,12,standing-forward-bend,106,standing-forward-bend,3,test
 1093,1900,https://www.youtube.com/watch?v=ANKVaW00yKs,379,384,5,3341,Ïç®ÎãàONE,1,standing,11,standing-straight,101,mountain,3,train
 1094,3189,https://www.youtube.com/watch?v=iyXXJciINJs,215,219,4,3345,ÏïÑÏâ¨ÌÉïÍ∞Ä ÏöîÍ∞Ä ÏΩîÎ¶¨ÏïÑ AYK,1,standing,11,standing-straight,101,mountain,3,train
 1095,4868,https://www.youtube.com/watch?v=URRbNxpzH2s,19,22,3,3345,ÏïÑÏâ¨ÌÉïÍ∞Ä ÏöîÍ∞Ä ÏΩîÎ¶¨ÏïÑ AYK,1,standing,11,standing-straight,101,mountain,3,train
@@ -564,7 +564,7 @@ sequence_id,url_id,url,frame_start,frame_end,sequence_duration,source_id,source,
 1598,1946,https://www.youtube.com/watch?v=AVpSqrReQb4,337,344,7,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,12,standing-forward-bend,106,standing-forward-bend,3,train
 1599,2153,https://www.youtube.com/watch?v=C7MxRFfMTc4,925,930,5,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,12,standing-forward-bend,106,standing-forward-bend,3,train
 1600,2348,https://www.youtube.com/watch?v=DgGAl5d5KiM,290,295,5,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,12,standing-forward-bend,106,standing-forward-bend,3,train
-1601,3056,https://www.youtube.com/watch?v=I-F9GCeGtG4,738,741,3,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,12,standing-forward-bend,106,standing-forward-bend,3,test
+1601,3056,https://www.youtube.com/watch?v=I-F9GCeGtG4,738,741,3,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,12,standing-forward-bend,107,half-way-lift,3,test
 1602,3448,https://www.youtube.com/watch?v=kTUd6WFUN3w,43,46,3,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,12,standing-forward-bend,106,standing-forward-bend,3,train
 1603,3722,https://www.youtube.com/watch?v=MpQlcMWfKHw,400,407,7,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,12,standing-forward-bend,106,standing-forward-bend,3,train
 1604,3940,https://www.youtube.com/watch?v=nZcba-v2iiA,212,217,5,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,12,standing-forward-bend,106,standing-forward-bend,3,train
@@ -658,7 +658,7 @@ sequence_id,url_id,url,frame_start,frame_end,sequence_duration,source_id,source,
 1692,4939,https://www.youtube.com/watch?v=VbyqzkxKM0Y,106,110,4,3408,ÌïòÏó∞ÏöîÍ∞Ä Yogaste,1,standing,12,standing-forward-bend,106,standing-forward-bend,3,train
 1693,1714,https://www.youtube.com/watch?v=8Ezrrcs8UBc,170,173,3,3412,ÌòÄÎãàÏå§ÏöîÍ∞Ä,1,standing,12,standing-forward-bend,106,standing-forward-bend,3,train
 1694,4942,https://www.youtube.com/watch?v=VCPTso-IPL0,754,762,8,3415,Ìö®Í∏∞Îãà,1,standing,12,standing-forward-bend,106,standing-forward-bend,3,train
-1695,1425,https://www.youtube.com/watch?v=4gFFmPgw8EI,40,44,4,3416,ÌõàÏöîÍ∞ÄxÏöîÍ∞ÄÌä∏Î¶¨ÎãàÌã∞,1,standing,12,standing-forward-bend,106,standing-forward-bend,3,train
+1695,1425,https://www.youtube.com/watch?v=4gFFmPgw8EI,40,44,4,3416,ÌõàÏöîÍ∞ÄxÏöîÍ∞ÄÌä∏Î¶¨ÎãàÌã∞,1,standing,11,standing-straight,101,mountain,3,train
 1696,4432,https://www.youtube.com/watch?v=rOS6EA44ZPE,47,50,3,3416,ÌõàÏöîÍ∞ÄxÏöîÍ∞ÄÌä∏Î¶¨ÎãàÌã∞,1,standing,12,standing-forward-bend,106,standing-forward-bend,3,train
 1697,5122,https://www.youtube.com/watch?v=wKKRT2Adl1c,11,12,1,1087,Almudena Yoga Life,1,standing,12,standing-forward-bend,107,half-way-lift,3,test
 1698,1530,https://www.youtube.com/watch?v=5vIJX7SIiJo,80,83,3,1089,Alo Yoga,1,standing,12,standing-forward-bend,107,half-way-lift,3,train
@@ -697,7 +697,7 @@ sequence_id,url_id,url,frame_start,frame_end,sequence_duration,source_id,source,
 1733,4824,https://www.youtube.com/watch?v=ugFPoONXldQ,77,80,3,3305,ÎùΩÏöîÍ∞Ä,1,standing,12,standing-forward-bend,107,half-way-lift,3,train
 1734,1816,https://www.youtube.com/watch?v=9tb2SynbVXQ,11,13,2,3279,Í∞ïÍ∞ÄÏöîÍ∞Ä,1,standing,12,standing-forward-bend,107,half-way-lift,3,train
 1736,3307,https://www.youtube.com/watch?v=JXb4zOypUM4,1407,1411,4,2089,MYYOGA ÎßàÏù¥ÏöîÍ∞Ä,1,standing,12,standing-forward-bend,107,half-way-lift,3,test
-1737,3706,https://www.youtube.com/watch?v=mKeLJ_HEMXs,379,382,3,3370,ÏöîÍ∞ÄÏÜåÎÖÑ,1,standing,12,standing-forward-bend,107,half-way-lift,3,train
+1737,3706,https://www.youtube.com/watch?v=mKeLJ_HEMXs,379,382,3,3370,ÏöîÍ∞ÄÏÜåÎÖÑ,1,standing,11,standing-straight,101,mountain,3,train
 1738,4783,https://www.youtube.com/watch?v=U1HeYNC28O4,33,35,2,3370,ÏöîÍ∞ÄÏÜåÎÖÑ,1,standing,12,standing-forward-bend,107,half-way-lift,3,train
 1739,3361,https://www.youtube.com/watch?v=kC6VdAuYlCw,167,170,3,3363,ÏöîÍ∞ÄÍ∞± YogaGang,1,standing,12,standing-forward-bend,107,half-way-lift,3,train
 1740,3602,https://www.youtube.com/watch?v=LTE3KuOfdAw,77,79,2,3148,yogamanaaum,1,standing,12,standing-forward-bend,107,half-way-lift,3,train
@@ -870,7 +870,7 @@ sequence_id,url_id,url,frame_start,frame_end,sequence_duration,source_id,source,
 1914,4939,https://www.youtube.com/watch?v=VbyqzkxKM0Y,112,114,2,3408,ÌïòÏó∞ÏöîÍ∞Ä Yogaste,1,standing,12,standing-forward-bend,107,half-way-lift,3,train
 1915,1714,https://www.youtube.com/watch?v=8Ezrrcs8UBc,176,179,3,3412,ÌòÄÎãàÏå§ÏöîÍ∞Ä,1,standing,12,standing-forward-bend,107,half-way-lift,3,train
 1916,4942,https://www.youtube.com/watch?v=VCPTso-IPL0,763,768,5,3415,Ìö®Í∏∞Îãà,1,standing,12,standing-forward-bend,107,half-way-lift,3,test
-1917,1425,https://www.youtube.com/watch?v=4gFFmPgw8EI,45,48,3,3416,ÌõàÏöîÍ∞ÄxÏöîÍ∞ÄÌä∏Î¶¨ÎãàÌã∞,1,standing,12,standing-forward-bend,107,half-way-lift,3,test
+1917,1425,https://www.youtube.com/watch?v=4gFFmPgw8EI,45,48,3,3416,ÌõàÏöîÍ∞ÄxÏöîÍ∞ÄÌä∏Î¶¨ÎãàÌã∞,1,standing,11,standing-straight,101,mountain,3,test
 1918,4432,https://www.youtube.com/watch?v=rOS6EA44ZPE,51,54,3,3416,ÌõàÏöîÍ∞ÄxÏöîÍ∞ÄÌä∏Î¶¨ÎãàÌã∞,1,standing,12,standing-forward-bend,107,half-way-lift,3,train
 1919,3288,https://www.youtube.com/watch?v=JQkVXDZZyNE,533,562,29,1020,A Tutto Yoga,1,standing,12,standing-forward-bend,108,wide-legged-forward-bend,1,train
 1920,2049,https://www.youtube.com/watch?v=bjd2C8_U7zs,501,530,29,1114,Anatomia Jogi,1,standing,12,standing-forward-bend,108,wide-legged-forward-bend,1,train
@@ -1094,7 +1094,7 @@ sequence_id,url_id,url,frame_start,frame_end,sequence_duration,source_id,source,
 2163,1946,https://www.youtube.com/watch?v=AVpSqrReQb4,361,366,5,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,12,standing-forward-bend,110,downward-dog,3,train
 2164,2153,https://www.youtube.com/watch?v=C7MxRFfMTc4,940,944,4,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,12,standing-forward-bend,110,downward-dog,3,train
 2165,2348,https://www.youtube.com/watch?v=DgGAl5d5KiM,1414,1420,6,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,12,standing-forward-bend,110,downward-dog,3,train
-2166,3056,https://www.youtube.com/watch?v=I-F9GCeGtG4,724,731,7,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,12,standing-forward-bend,110,downward-dog,3,train
+2166,3056,https://www.youtube.com/watch?v=I-F9GCeGtG4,724,731,7,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,12,standing-forward-bend,106,standing-forward-bend,3,train
 2167,3448,https://www.youtube.com/watch?v=kTUd6WFUN3w,58,62,4,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,12,standing-forward-bend,110,downward-dog,3,train
 2168,3722,https://www.youtube.com/watch?v=MpQlcMWfKHw,421,426,5,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,12,standing-forward-bend,110,downward-dog,3,train
 2169,3940,https://www.youtube.com/watch?v=nZcba-v2iiA,232,237,5,3325,ÏÑúÎ¶¨ÏöîÍ∞Äseoriyoga,1,standing,12,standing-forward-bend,110,downward-dog,3,test

@@ -1,0 +1,24 @@
+sequence_id,correct_label,prediction ### means clip missing
+1090,mountain,downward-dog
+1092,mountain,standing-forward-bend
+1105,mountain,half-way-lift   ####
+1475,standing-forward-bend,mountain #clip ends fast then mountain
+1490,standing-forward-bend,half-way-lift #clip duration
+1538,standing-forward-bend,half-way-lift  #clip d 
+1575,standing-forward-bend,half-way-lift #cd
+1601,standing-forward-bend,half-way-lift # hwl plank pose?
+1620,standing-forward-bend,mountain #clip duration my clip is also cut too early
+1624,standing-forward-bend,half-way-lift  ###
+1627,standing-forward-bend,half-way-lift  ###
+1636,standing-forward-bend,half-way-lift  ###
+1655,standing-forward-bend,half-way-lift  ###
+1695,standing-forward-bend,mountain   $$this is not mountain
+1703,half-way-lift,standing-forward-bend  # head is down but if cut earlier then okay
+1719,half-way-lift,downward-dog  # hwl to dd but earlier cut could be an issue
+1737,half-way-lift,mountain # hand is up it could be other than mountain gpt says upward salute
+1785,half-way-lift,standing-forward-bend # early cut could make it sfb
+1788,standing-forward-bend,half-way-lift # cut early is sfb
+1846,half-way-lift,downward-dog  ###
+1910,half-way-lift,standing-forward-bend  # sfb to hwl but low hwl
+1917,half-way-lift,mountain $$$ isn't mountain bro is just point randomly
+2083,downward-dog,half-way-lift # looks like dd but from sfb
