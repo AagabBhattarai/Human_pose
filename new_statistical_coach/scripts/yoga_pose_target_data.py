@@ -1,0 +1,141 @@
+poses = ['downward-dog',
+         'upward-facing-dog',
+         'half-way-lift',
+         'mountain',
+         'chair',
+         'cobra',
+         'cockerel',
+         'extended-triangle',
+         'extended-side-angle',
+         'corpse',
+         'staff',
+         'wind-relieving',
+         'fish']
+
+ACTION_JOINT_MAPPING = {
+    'downward-dog': ['right_shoulder', 'left_shoulder', 'right_hip', 'left_hip', 'right_knee', 'left_knee'],
+    'standing-forward-bend': ['right_hip', 'left_hip', 'right_knee', 'left_knee', 'right_shoulder', 'left_shoulder'],
+    'half-way-lift': ['right_hip', 'left_hip', 'right_knee', 'left_knee', 'right_shoulder', 'left_shoulder'],
+    'mountain': ['right_shoulder', 'left_shoulder', 'right_hip', 'left_hip', 'right_knee', 'left_knee'],
+    'chair': ['right_hip', 'left_hip', 'right_knee', 'left_knee', 'right_shoulder', 'left_shoulder'],
+    'cobra': ['right_shoulder', 'left_shoulder', 'right_hip', 'left_hip', 'right_elbow', 'left_elbow'],
+    'cockerel': ['right_elbow', 'left_elbow', 'right_hip', 'left_hip', 'right_knee', 'left_knee', 'right_ankle', 'left_ankle'],
+    'extended-triangle': ['right_shoulder', 'left_shoulder', 'right_hip', 'left_hip', 'right_knee', 'left_knee'],
+    'extended-side-angle': ['right_shoulder', 'left_shoulder', 'right_hip', 'left_hip', 'right_knee', 'left_knee'],
+    'corpse': ['right_hip', 'left_hip', 'right_knee', 'left_knee', 'right_shoulder', 'left_shoulder'],
+    'staff': ['right_hip', 'left_hip', 'right_knee', 'left_knee', 'right_shoulder', 'left_shoulder'],
+    'wind-relieving': ['right_hip', 'left_hip', 'right_knee', 'left_knee', 'right_shoulder', 'left_shoulder'],
+    'fish': ['right_shoulder', 'left_shoulder', 'right_hip', 'left_hip', 'right_elbow', 'left_elbow']
+}
+
+
+
+# THE VALUES AREN'T ACCURATE; AKA PLACEHOLDER.
+TARGET_ANGLES = {
+    'downward-dog': {
+        'right_shoulder': 180,  # Arms should be straight and aligned with the back.
+        'left_shoulder': 180,
+        'right_hip': 90,       # Hips should form a right angle with legs.
+        'left_hip': 90,
+        'right_knee': 180,     # Legs should be straight.
+        'left_knee': 180
+    },
+    'standing-forward-bend': {
+        'right_hip': 90,       # Full forward fold requires hips to form a right angle.
+        'left_hip': 90,
+        'right_knee': 180,     # Knees are ideally straight.
+        'left_knee': 180,
+        'right_shoulder': 0,   # Arms hang down naturally.
+        'left_shoulder': 0
+    },
+    'half-way-lift': {
+        'right_hip': 90,       # Flat back requires hips at 90 degrees.
+        'left_hip': 90,
+        'right_knee': 180,     # Knees are straight.
+        'left_knee': 180,
+        'right_shoulder': 90,  # Shoulders align with the back, creating a 90-degree angle with the arms.
+        'left_shoulder': 90
+    },
+    'mountain': {
+        'right_shoulder': 0,   # Arms hang naturally down the sides.
+        'left_shoulder': 0,
+        'right_hip': 180,      # Hips in a neutral position, no flexion or extension.
+        'left_hip': 180,
+        'right_knee': 180,     # Legs are straight.
+        'left_knee': 180
+    },
+    'chair': {
+        'right_hip': 120,      # Hips are bent, but not a full 90 degrees.
+        'left_hip': 120,
+        'right_knee': 120,     # Knees are bent, aligning with hips.
+        'left_knee': 120,
+        'right_shoulder': 180, # Arms are fully extended upward.
+        'left_shoulder': 180
+    },
+    'cobra': {
+        'right_shoulder': 180, # Arms are straight, pushing the upper body up.
+        'left_shoulder': 180,
+        'right_hip': 180,      # Hips are pressed into the ground, no flexion.
+        'left_hip': 180,
+        'right_elbow': 0,      # Elbows are straight.
+        'left_elbow': 0
+    },
+    'cockerel': {
+        'right_elbow': 90,     # Elbows are bent to hold the body.
+        'left_elbow': 90,
+        'right_hip': 90,       # Hips are flexed to lift the legs.
+        'left_hip': 90,
+        'right_knee': 90,      # Knees are bent to compact the pose.
+        'left_knee': 90,
+        'right_ankle': 90,     # Ankles are flexed for balance.
+        'left_ankle': 90
+    },
+    'extended-triangle': {
+        'right_shoulder': 180, # Top arm is extended upward.
+        'left_shoulder': 180,  # Bottom arm points downward.
+        'right_hip': 90,       # Hips are bent sideways.
+        'left_hip': 90,
+        'right_knee': 180,     # Front leg is straight.
+        'left_knee': 180
+    },
+    'extended-side-angle': {
+        'right_shoulder': 90,  # Top arm extends over the ear.
+        'left_shoulder': 90,   # Bottom arm rests on the bent leg or floor.
+        'right_hip': 90,       # Hips are deeply bent.
+        'left_hip': 90,
+        'right_knee': 90,      # Front leg is bent at 90 degrees.
+        'left_knee': 180       # Back leg is straight.
+    },
+    'corpse': {
+        'right_hip': 180,      # Full relaxation, neutral position.
+        'left_hip': 180,
+        'right_knee': 180,     # Legs are straight.
+        'left_knee': 180,
+        'right_shoulder': 0,   # Arms rest at the sides.
+        'left_shoulder': 0
+    },
+    'staff': {
+        'right_hip': 90,       # Hips are at a right angle for the seated position.
+        'left_hip': 90,
+        'right_knee': 180,     # Legs are straight.
+        'left_knee': 180,
+        'right_shoulder': 90,  # Shoulders align with the back.
+        'left_shoulder': 90
+    },
+    'wind-relieving': {
+        'right_hip': 45,       # Hips are flexed to bring the knees toward the chest.
+        'left_hip': 45,
+        'right_knee': 135,     # Knees are bent.
+        'left_knee': 135,
+        'right_shoulder': 0,   # Arms wrap around the knees.
+        'left_shoulder': 0
+    },
+    'fish': {
+        'right_shoulder': 90,  # Arms support the body at a 90-degree angle.
+        'left_shoulder': 90,
+        'right_hip': 180,      # Hips remain neutral.
+        'left_hip': 180,
+        'right_elbow': 90,     # Elbows are bent to support the chest lift.
+        'left_elbow': 90
+    }
+}
