@@ -24,7 +24,8 @@ def process_yoga_video(video_path,
     """
     # Extract keypoints
     # Check if features exist in features_for_dev directory
-    features_dev_path = os.path.join('..', 'features_for_dev', 'first.pt')
+    video_name = os.path.basename(video_path)
+    features_dev_path = os.path.join('..', 'features_for_dev', f'{os.path.splitext(video_name)[0]}.pt')
     
     if os.path.exists(features_dev_path):
         # Load pre-computed features if they exist
@@ -33,6 +34,10 @@ def process_yoga_video(video_path,
         # Extract keypoints if no pre-computed features found
         features = keypoint_extractor(video_path)
         features = torch.from_numpy(features)
+        
+        # Save features to the features_dev_path
+        # os.makedirs(os.path.dirname(features_dev_path), exist_ok=True)
+        torch.save(features, features_dev_path)
     
     # Initialize extractors
     extractor = BiomechanicalFeatureExtractor()
@@ -64,16 +69,11 @@ def process_yoga_video(video_path,
     
     if hold_frame_number is not None:
         # Extract angles for the specific hold frame
-        hold_frame_features = features[hold_frame_number-5: hold_frame_number]
-        print("HOLD FRAME FEATURES SHAPE:", hold_frame_features.shape)
+        hold_frame_features = features[hold_frame_number-10: hold_frame_number + 200]
         angles_dict = extractor.extract_features(
             hold_frame_features, 
             return_angles_dict=True
         )['Angles Dictionary']
-    #    extractor.compute_joint_angles() 
-        print(f"Joint Angles at Frame {hold_frame_number}:")
-        for joint, angle in angles_dict.items():
-            print(f"{joint}: {angle}")
     
     # Visualize velocity
     plt.figure(figsize=(10, 5))
@@ -119,8 +119,8 @@ def extract_angles_from_video_segment(video_path, start_frame, end_frame, featur
     )['Angles Dictionary']
 
     print(f"Joint Angles at Frame {start_frame}:")
-    # for joint, angle in angles_dict.items():
-    #     print(f"{joint}: {angle}")
+    for joint, angle in angles_dict.items():
+        print(f"{joint}: {angle}")
     
     return angles_dict
 
