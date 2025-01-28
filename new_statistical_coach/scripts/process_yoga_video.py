@@ -69,7 +69,8 @@ def process_yoga_video(video_path,
     
     if hold_frame_number is not None:
         # Extract angles for the specific hold frame
-        hold_frame_features = features[hold_frame_number-10: hold_frame_number + 200]
+        print("HOLD FRAME NUMBER:", hold_frame_number)
+        hold_frame_features = features[hold_frame_number-2:hold_frame_number]
         angles_dict = extractor.extract_features(
             hold_frame_features, 
             return_angles_dict=True

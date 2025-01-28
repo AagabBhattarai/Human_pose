@@ -26,6 +26,9 @@ def clip_video_with_ffmpeg(video_path, segment_info, output_dir):
 
         start_time = start_frame / frame_rate
         end_time = (start_frame + duration + int(frame_rate)) / frame_rate
+        print("Start Time:", start_time)
+        print("End Time:", end_time)
+        print("Frame Rate:", frame_rate)
 
         output_file = os.path.join(output_dir, f"{state.value}_{start_frame}_{start_frame + duration + int(frame_rate)}.mp4")
 

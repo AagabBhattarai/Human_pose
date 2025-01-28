@@ -1,3 +1,59 @@
+joint_configs = {
+        # Upper body
+        'right_shoulder': {
+            'joints': (13, 11, 23),  # right_elbow, right_shoulder, right_hip
+            'joint_names': ('right_elbow', 'right_shoulder', 'right_hip'),
+            'planes': ['sagittal', 'transverse', 'frontal']
+        },
+        'left_shoulder': {
+            'joints': (14, 12, 24),  # left_elbow, left_shoulder, left_hip
+            'joint_names': ('left_elbow', 'left_shoulder', 'left_hip'),
+            'planes': ['sagittal', 'transverse', 'frontal']
+        },
+        'right_elbow': {
+            'joints': (11, 13, 15),  # right_shoulder, right_elbow, right_wrist
+            'joint_names': ('right_shoulder', 'right_elbow', 'right_wrist'),
+            'planes': ['sagittal', 'transverse', 'frontal']
+        },
+        'left_elbow': {
+            'joints': (12, 14, 16),  # left_shoulder, left_elbow, left_wrist
+            'joint_names': ('left_shoulder', 'left_elbow', 'left_wrist'),
+            'planes': ['sagittal', 'transverse', 'frontal']
+        },
+        
+        # Lower body
+        'right_hip': {
+            'joints': (11, 23, 25),  # right_shoulder, right_hip, right_knee
+            'joint_names': ('right_shoulder', 'right_hip', 'right_knee'),
+            'planes': ['sagittal', 'transverse', 'frontal']
+        },
+        'left_hip': {
+            'joints': (12, 24, 26),  # left_shoulder, left_hip, left_knee
+            'joint_names': ('left_shoulder', 'left_hip', 'left_knee'),
+            'planes': ['sagittal', 'transverse', 'frontal']
+        },
+        'right_knee': {
+            'joints': (23, 25, 27),  # right_hip, right_knee, right_ankle
+            'joint_names': ('right_hip', 'right_knee', 'right_ankle'),
+            'planes': ['sagittal', 'transverse', 'frontal']  # Now including transverse
+        },
+        'left_knee': {
+            'joints': (24, 26, 28),  # left_hip, left_knee, left_ankle
+            'joint_names': ('left_hip', 'left_knee', 'left_ankle'),
+            'planes': ['sagittal', 'transverse', 'frontal']  # Now including transverse
+        },
+        'right_ankle': {
+            'joints': (25, 27, 31),  # right_knee, right_ankle, right_foot_index
+            'joint_names': ('right_knee', 'right_ankle', 'right_foot_index'),
+            'planes': ['sagittal', 'transverse', 'frontal']
+        },
+        'left_ankle': {
+            'joints': (26, 28, 32),  # left_knee, left_ankle, left_foot_index
+            'joint_names': ('left_knee', 'left_ankle', 'left_foot_index'),
+            'planes': ['sagittal', 'transverse', 'frontal']
+        }
+}
+
 poses = ['downward-dog',
          'upward-facing-dog',
          'half-way-lift',

@@ -287,7 +287,7 @@ def build_tts_model(voice_name="af_bella",device:str = None):
         traceback.print_exc()
         return None, None
 
-def generate_audio(model, voice, text:str, device:str = 'cpu'): 
+def generate_audio(model, voice, text:str,output_path, device:str = 'cpu'): 
     """Generate and save audio from text."""
     try:
         print(f"\nGenerating speech for: '{text}'")
@@ -295,14 +295,8 @@ def generate_audio(model, voice, text:str, device:str = 'cpu'):
 
         # Save output audio
         if audio is not None:
-            # Display audio inline
-            # from IPython.display import Audio, display
-            # display(Audio(audio, rate=SAMPLE_RATE))
-            
-            # Optional: save to file
-            output_path = "output.wav"
-            sf.write(output_path, audio, SAMPLE_RATE)
-            print(f"\nAudio saved to {output_path}")
+
+            save_audio(output_path, audio)
             
             if phonemes:
                 print(f"Generated phonemes: {phonemes}")
@@ -317,10 +311,21 @@ def generate_audio(model, voice, text:str, device:str = 'cpu'):
         traceback.print_exc()
         return None
 
+def save_audio(output_path, audio):
+    # Create output_sound directory if it doesn't exist
+    output_dir = 'output_sound'
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Ensure output_path uses the output_sound directory
+    output_path = os.path.join(output_dir, os.path.basename(output_path))
+    
+    sf.write(output_path, audio, SAMPLE_RATE)
+    print(f"\nAudio saved to {output_path}")
+
 # Build the TTS model with a preferred voice once
 preferred_voice = "af_bella"  # Set your preferred voice here
 model, voice = build_tts_model(voice_name=preferred_voice)
 
-def text_to_speech(text, model = model, voice= voice):
+def text_to_speech(text, model = model, voice= voice, output_path='output.wav'):
     """Convert text to speech using the pre-built model and voice."""
-    return generate_audio(model, voice, text)
+    return generate_audio(model, voice, text, output_path)
