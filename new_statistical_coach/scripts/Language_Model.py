@@ -117,3 +117,84 @@ def get_local_language_model_feedback(
         print(f"Error communicating with LM Studio server: {e}")
         return ""
 
+
+import torch
+from typing import Dict, Tuple, Any, Union
+from yoga_pose_target_data import ACTION_JOINT_MAPPING
+
+def format_angle_data(angle_data: Dict[str, Union[Tuple, torch.Tensor]]) -> Dict[str, float]:
+    """
+    Convert the raw angle data into a clean dictionary of float values
+    """
+    formatted_data = {}
+    for joint, data in angle_data.items():
+        # Check if the data is a tuple (joints, angle) or just an angle
+        if isinstance(data, tuple):
+            angle = data[1]
+        else:
+            angle = data
+        
+        # Convert tensor to float
+        if isinstance(angle, torch.Tensor):
+            formatted_data[joint] = float(angle)
+        else:
+            formatted_data[joint] = float(angle)
+    
+    return formatted_data
+
+def generate_pose_feedback_prompt(
+    user_angles: Dict[str, Any],
+    target_angles: Dict[str, Any],
+    action_type: str,
+    joint_configs: Dict[str, Dict[str, Any]]
+) -> str:
+    """
+    Generate a structured prompt for pose feedback
+    
+    Parameters:
+    - user_angles: Dictionary of current user joint angles
+    - target_angles: Dictionary of target joint angles
+    - action_type: Type of pose/action being performed
+    - joint_configs: Configuration dictionary containing joint relationships
+    
+    Returns:
+    - Formatted prompt string
+    """
+    # Format the angle data
+    user_angles_clean = format_angle_data(user_angles)
+    target_angles_clean = format_angle_data(target_angles)
+    
+    # Get relevant joints for this action
+    relevant_joints = ACTION_JOINT_MAPPING.get(action_type, [])
+    prompt_parts = [
+        f"Action: {action_type} Pose\n",
+        "Current Joint Analysis:\n"
+    ]
+    
+    # Add joint-specific information
+    for joint in relevant_joints:
+        if joint in user_angles_clean and joint in target_angles_clean:
+            current_angle = user_angles_clean[joint]
+            target_angle = target_angles_clean[joint]
+            # print(current_angle)
+            
+            # Get involved body parts from joint_configs
+            involved_parts = joint_configs[joint]['joint_names']
+            
+            prompt_parts.append(
+                f"- {joint.replace('_', ' ').title()}:\n"
+                f"  Current: {current_angle:.1f}°\n"
+                f"  Target: {target_angle:.1f}°\n"
+                f"  Involved parts: {', '.join(involved_parts)}\n"
+            )
+    
+    prompt_parts.extend([
+        "\nContext:",
+        f"- This is a {action_type.replace('_', ' ')} position.",
+        "- Focus on angles representing proper body alignment.",
+        "Task: Respond ONLY with the coach's feedback in 5-10 words. Avoid any extra explanations or numbers.",
+        "Keep it short, direct, and actionable, like a yoga instructor would.",
+        "Only focus on most significant flaw and give output like the user is listening while doing the pose."
+    ])
+ 
+    return "\n".join(prompt_parts)
