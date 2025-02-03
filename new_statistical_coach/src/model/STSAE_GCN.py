@@ -115,75 +115,126 @@ class STSAM(nn.Module):
 
         return out
 
+# class MTCN(nn.Module):
+#     def __init__(self, in_channels, hidden_channels=None):
+#         super(MTCN, self).__init__()
+
+#         # If hidden_channels not specified, make it divisible by 6
+#         if hidden_channels is None:
+#             hidden_channels = in_channels - (in_channels % 6)
+
+#         assert hidden_channels % 6 == 0, "var: hidden_channels should always be multple of 6 because 6 branches"
+
+#         self.branch_channels = hidden_channels // 6
+
+#         # Initial 1x1 conv to reduce channels
+#         self.init_conv = nn.Conv2d(
+#             in_channels,
+#             hidden_channels,
+#             kernel_size=1
+#         )
+
+#         # Branch 1: 1x1 Conv
+#         self.branch1 = nn.Conv2d(
+#             hidden_channels,
+#             self.branch_channels,
+#             kernel_size=1
+#         )
+
+#         # Branch 2: Max Pooling followed by 1x1 Conv to adjust channels
+#         self.branch2 = nn.Sequential(
+#             nn.MaxPool2d(kernel_size=(1, 3), padding=(0, 1), stride=1),
+#             nn.Conv2d(hidden_channels, self.branch_channels, kernel_size=1)
+#         )
+
+#         # Branches 3-6: 1D Conv with different dilations
+#         self.branches = nn.ModuleList([
+#             nn.Conv2d(
+#                 hidden_channels,
+#                 self.branch_channels,
+#                 kernel_size=(1, 3),
+#                 padding=(0, dilation),
+#                 dilation=(1, dilation)
+#             ) for dilation in range(1, 5)
+#         ])
+
+#         # Final 1x1 conv to restore original channel count
+#         self.final_conv = nn.Conv2d(hidden_channels, in_channels, kernel_size=1)
+
+#     def forward(self, x):
+#         # x shape: (batch_size, C, V, T)
+
+#         # Initial channel reduction
+#         x = self.init_conv(x)
+
+#         # Process each branch
+#         branch1 = self.branch1(x)
+#         branch2 = self.branch2(x)
+
+#         # Process dilated convolution branches
+#         branch_outputs = [branch1, branch2]
+#         for branch in self.branches:
+#             branch_outputs.append(branch(x))
+
+#         # Concatenate all branch outputs
+#         x = torch.cat(branch_outputs, dim=1)
+
+#         # Final 1x1 conv
+#         x = self.final_conv(x)
+
+#         return x
 class MTCN(nn.Module):
     def __init__(self, in_channels, hidden_channels=None):
         super(MTCN, self).__init__()
 
-        # If hidden_channels not specified, make it divisible by 6
+        # Channel configuration
         if hidden_channels is None:
             hidden_channels = in_channels - (in_channels % 6)
-
-        assert hidden_channels % 6 == 0, "var: hidden_channels should always be multple of 6 because 6 branches"
-
+        assert hidden_channels % 6 == 0, "hidden_channels must be divisible by 6"
         self.branch_channels = hidden_channels // 6
 
-        # Initial 1x1 conv to reduce channels
-        self.init_conv = nn.Conv2d(
-            in_channels,
-            hidden_channels,
-            kernel_size=1
-        )
+        # 1x1 channel reducer
+        self.init_conv = nn.Conv2d(in_channels, hidden_channels, kernel_size=1)
 
-        # Branch 1: 1x1 Conv
-        self.branch1 = nn.Conv2d(
-            hidden_channels,
-            self.branch_channels,
-            kernel_size=1
-        )
+        # Branch 1: Pointwise temporal feature
+        self.branch1 = nn.Conv2d(hidden_channels, self.branch_channels, kernel_size=1)
 
-        # Branch 2: Max Pooling followed by 1x1 Conv to adjust channels
+        # Branch 2: Temporal max pooling
         self.branch2 = nn.Sequential(
             nn.MaxPool2d(kernel_size=(1, 3), padding=(0, 1), stride=1),
             nn.Conv2d(hidden_channels, self.branch_channels, kernel_size=1)
         )
 
-        # Branches 3-6: 1D Conv with different dilations
+        # Branches 3-6: Multi-scale temporal convs
         self.branches = nn.ModuleList([
             nn.Conv2d(
                 hidden_channels,
                 self.branch_channels,
-                kernel_size=(1, 3),
+                kernel_size=(1, 3),  # Temporal kernel
                 padding=(0, dilation),
-                dilation=(1, dilation)
-            ) for dilation in range(1, 5)
+                dilation=(1, dilation)  # Temporal dilation
+            ) for dilation in [1, 2, 3, 4]
         ])
 
-        # Final 1x1 conv to restore original channel count
+        # Final fusion
         self.final_conv = nn.Conv2d(hidden_channels, in_channels, kernel_size=1)
 
     def forward(self, x):
-        # x shape: (batch_size, C, V, T)
-
-        # Initial channel reduction
+        # Input: (N, C, T, V)
+        x = x.permute(0, 1, 3, 2)  # (N, C, V, T)
         x = self.init_conv(x)
 
-        # Process each branch
-        branch1 = self.branch1(x)
-        branch2 = self.branch2(x)
-
-        # Process dilated convolution branches
-        branch_outputs = [branch1, branch2]
-        for branch in self.branches:
-            branch_outputs.append(branch(x))
-
-        # Concatenate all branch outputs
-        x = torch.cat(branch_outputs, dim=1)
-
-        # Final 1x1 conv
-        x = self.final_conv(x)
-
+        # Process branches
+        b1 = self.branch1(x)
+        b2 = self.branch2(x)
+        b3 = [branch(x) for branch in self.branches]
+        
+        # Concatenate along channel dim
+        x = torch.cat([b1, b2] + b3, dim=1)
+        
+        # Restore original shape
+        x = self.final_conv(x).permute(0, 1, 3, 2)  # (N, C, T, V)
         return x
-
 class STSAE_GCN_Block(nn.Module):
     def __init__(self, in_channels, out_channels):
         super(STSAE_GCN_Block, self).__init__()
